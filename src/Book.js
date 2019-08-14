@@ -39,18 +39,18 @@ import Popup from './Popup.js';
             <tr>
                 <th>Book Name</th>
                 <th> Book Price</th> 
-                <th>Book Desc</th> 
+                <th>Book Category</th> 
                 
             </tr>
             </thead>    
-            
+            {this.props.books.map((b, i) =>
                     <tr>
-                        <td>{this.props.bookname}</td>
-                        <td>{this.props.bookprice}</td>
-                        <td>{this.props.bookcategory}</td>
+                        <td>{b.bookname}</td>
+                        <td>{b.bookprice}</td>
+                        <td>{b.bookcategory}</td>
                         
                     </tr>
-            
+            )}
         </Table>
 
         </Container>
@@ -60,12 +60,18 @@ import Popup from './Popup.js';
   }
 }
 
-const mapstateToProps =state=>({
+/*const mapstateToProps =state=>({
     
     
     bookname : state.bookname,
     bookprice : state.bookprice,
     bookcategory : state.bookcategory
+
+})*/
+const mapstateToProps =state=>({
+    
+    
+  books : state
 
 })
 
