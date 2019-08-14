@@ -18,6 +18,18 @@ class EditPopup extends React.Component {
             bookcategory:"",
             bookdescription:""
         }
+        console.log("edit data",this.props.bookList.bookname)
+        
+
+        setTimeout(() =>{
+            this.setState({
+                bookname: this.props.bookList.bookname ,
+                bookprice: this.props.bookList.bookprice,
+                bookcategory: this.props.bookList.bookcategory,
+                bookdescription: this.props.bookList.bookdescription
+            })
+        },500)
+        
     }
     handleInput=(e)=>{
         this.setState({
