@@ -19,6 +19,12 @@ import Popup from './Popup.js';
           showPopup: !this.state.showPopup
         });
       }
+
+      deleteBook = (data) => {
+        console.log("delete data",data.target.value);
+        this.props.dispatch({type: "BOOKDELETED", payload: data.target.value});
+
+      }
     
     render(){
   return (
@@ -44,11 +50,11 @@ import Popup from './Popup.js';
             </tr>
             </thead>    
             {this.props.books.map((b, i) =>
-                    <tr>
+                    <tr key={i}>
                         <td>{b.bookname}</td>
                         <td>{b.bookprice}</td>
                         <td>{b.bookcategory}</td>
-                        <td><button type="button">Delete</button></td>
+                        <button type="button" value ={b.bookname}  onClick={this.deleteBook}>Delete</button>
                     </tr>
             )}
         </Table>

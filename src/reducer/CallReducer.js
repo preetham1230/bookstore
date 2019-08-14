@@ -18,6 +18,10 @@ switch(action.type){
                 Object.assign({}, action.payload)
               ];
 
+    case "BOOKDELETED": 
+            
+    return state.filter(x => x.bookname !== action.payload);
+
     default:
         return state;
 }
