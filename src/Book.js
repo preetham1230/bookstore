@@ -40,7 +40,7 @@ import Popup from './Popup.js';
                 <th>Book Name</th>
                 <th> Book Price</th> 
                 <th>Book Category</th> 
-                
+                <th></th>
             </tr>
             </thead>    
             {this.props.books.map((b, i) =>
@@ -48,7 +48,7 @@ import Popup from './Popup.js';
                         <td>{b.bookname}</td>
                         <td>{b.bookprice}</td>
                         <td>{b.bookcategory}</td>
-                        
+                        <td><button type="button">Delete</button></td>
                     </tr>
             )}
         </Table>
