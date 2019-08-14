@@ -5,18 +5,26 @@ import {Table} from 'reactstrap';
 import Books from './Books.css';
 import { connect } from 'react-redux';
 import Popup from './Popup.js';
+import EditPopup from './EditPopup.js';
 
 
  class Book extends React.Component{
     constructor() {
         super();
         this.state = {
-          showPopup: false
+          showPopup: false,
+          editpopup: false
         };
       }
       addBook=()=> {
         this.setState({
           showPopup: !this.state.showPopup
+        });
+      }
+
+      editBook=()=> {
+        this.setState({
+          editpopup: !this.state.editpopup
         });
       }
 
@@ -38,6 +46,14 @@ import Popup from './Popup.js';
             />
             : null
           }
+
+        {this.state.editpopup ? 
+            <EditPopup
+              text='Close Me'
+              editPopup={this.editBook}
+            />
+            : null
+          }
         <Container>
 
         <Table>
@@ -51,7 +67,7 @@ import Popup from './Popup.js';
             </thead>    
             {this.props.books.map((b, i) =>
                     <tr key={i}>
-                        <td>{b.bookname}</td>
+                        <td><button type="button" className= "btn btn-link" onClick={this.editBook}>{b.bookname}</button></td>
                         <td>{b.bookprice}</td>
                         <td>{b.bookcategory}</td>
                         <button type="button" value ={b.bookname}  onClick={this.deleteBook}>Delete</button>

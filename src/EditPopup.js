@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 
 
-class Popup extends React.Component {
+class EditPopup extends React.Component {
 
     
     constructor(props){
@@ -36,7 +36,7 @@ class Popup extends React.Component {
       return (
         <div className='popup'>
           <div className='popup_inner'>
-            <button style={{float:"right"}} onClick={this.props.closePopup} id="myCheck">X</button>
+            <button style={{float:"right"}} onClick={this.props.editPopup} id="myCheck">X</button>
            <div style={{float: "left", margin: "40px"}}>
             <strong><label>Book Name: </label></strong>
              <input type="text" name="bookname" value={this.state.bookname} onChange={this.handleInput}></input> <br></br>
@@ -66,4 +66,4 @@ class Popup extends React.Component {
 
 })
 
-export default connect(mapstateToProps) (Popup);
+export default connect(mapstateToProps) (EditPopup);
